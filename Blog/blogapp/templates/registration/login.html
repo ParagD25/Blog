@@ -1,0 +1,23 @@
+{% extends 'blogapp/base.html' %}
+
+{% block body_block %}
+
+<div class="login_container">
+
+    <h2>Login</h2>
+
+    {% if form.errors %}
+        <p>Username and Passwod didnt match</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn-login" value="login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+
+</div>
+
+{% endblock %}

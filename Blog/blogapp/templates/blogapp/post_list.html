@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block body_block %}
-    <div class="jumbotron">
+    <div class="jumbotron posts_container">
 
         {% for post in post_list %}
-            <div>
-                <h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+            <a a href="{% url 'post_detail' pk=post.pk %}" class="post-card">
+                <h3 class="post-card-heading">{{post.title}}</h3>
                 <div>
                     Created Date : {{post.create_date|date:"d-m-Y"}} <br>
                     Published Date : {{post.publish_date|date:"d-m-Y"}}
                 </div>
-                <a href="{% url 'post_detail' pk=post.pk %}">Comments : {{post.approve_comments.count}}</a>
-            </div>
+                <p href="{% url 'post_detail' pk=post.pk %}" class="post-comments">Comments : {{post.approve_comments.count}}</p>
+            </a>  
         {% endfor %}
 
     </div>

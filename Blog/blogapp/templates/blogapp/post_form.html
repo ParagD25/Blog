@@ -6,16 +6,21 @@
 
 {% block body_block %}
 
+<div class="new-post">
     {% if not form.instance.pk %}
-        <h2>New Post</h2>
-    {% else %}
-        <h2>Update</h2>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+        <h2 class="new-post_heading">New Post</h2>
+        {% else %}
+        <h2  class="new-post_heading">Update</h2>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-container">
+                <p></p>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
 
     <script>var editor = new MediumEditor('.editable');</script>
 {% endblock %}

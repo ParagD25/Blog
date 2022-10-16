@@ -7,7 +7,7 @@
 {% block body_block %}
 
 
-    <form method="post">
+    <form method="post" class="delete-post">
         {% csrf_token %}
         <p>Confirm Delete ?? {{ object }}</p>
         <input type="submit" class="btn btn-danger" value="Confirm">
